@@ -362,6 +362,32 @@ component. Fill in the component removed and all metrics.]
 
 ---
 
+### 6.6 Methods comparison table (draft)
+
+This table compares your method against prior work across structural dimensions — not
+metric values. It is distinct from the results table (§6.1). The results table compares
+numbers; this table compares approaches. This table is always mandatory.
+
+Fill one row per method, including yours. Adjust columns based on the venue papers'
+comparison tables in `VENUE_NOTES.md`.
+
+| Method | Year | Modality | Core technique | Supervision type | Interpretability | Key limitation |
+|--------|------|----------|---------------|-----------------|------------------|----------------|
+| [Prior method 1] | | | | | | |
+| [Prior method 2] | | | | | | |
+| [Prior method 3] | | | | | | |
+| [Prior method 4] | | | | | | |
+| **[Your method]** | | | | | | |
+
+**Source:** Cross-reference `LITERATURE_LIST.md` (direct predecessors) and
+`literature_review.csv` (`core_method`, `key_limitation`, `how_we_differ` columns).
+
+**Takeaway sentence for this table:**
+[One sentence summarizing what pattern the table reveals about prior work and how
+your method differs]
+
+---
+
 ## 7. XAI / interpretability results (if applicable)
 
 [Fill if your paper includes explainability analysis]
@@ -447,3 +473,25 @@ has supporting data in this file. Check each:
 - [ ] Any statistical significance claim — p-values in section 6.4
 - [ ] Any qualitative / interpretability claim — XAI findings in section 7
 - [ ] Any deployment / efficiency claim — hardware and training time in section 4
+- [ ] Methods comparison table — populated in section 6.6
+
+---
+
+## 11. Structural completeness cross-reference
+
+Compare the content of this file against the "Mandatory structural checklist" from
+`VENUE_NOTES.md`. For each mandatory element, verify this file contains the data
+needed to produce it in the draft. Flag any gaps.
+
+| Mandatory element (from VENUE_NOTES.md) | Data present? | Section | Action needed |
+|----------------------------------------|---------------|---------|---------------|
+| Methods comparison table | [yes/no] | §6.6 | [describe if missing] |
+| Ablation table | [yes/no] | §6.2 | |
+| Custom metric with formula | [yes/no] | §5 | |
+| [copy remaining mandatory items from VENUE_NOTES.md checklist] | | | |
+
+**Gaps identified:**
+[List every mandatory element that lacks data. For each, describe what needs to be
+produced, computed, or sourced before writing can begin.]
+
+**Gate: Do not proceed to Phase 4 until every gap in this table is resolved.**

@@ -1,6 +1,6 @@
 # Research Paper Writing Skill
 
-**Version:** 1.0
+**Version:** 1.1
 **Built for:** Producing polished, publication-ready research paper drafts from raw
 idea documents and code. Designed to avoid every common failure mode in academic
 writing — particularly the specific issues that appear in AI-assisted drafts.
@@ -74,3 +74,6 @@ real paper drafts:
 - **Broken paragraph logic, decoration-only transitions** — addressed in WRITING_RULES §3
 - **Results tables with no interpretation** — addressed in WRITING_RULES §2.3
 - **Diagram placeholders forgotten or left vague** — addressed by placeholder format in Phase 4
+- **Missing genre-mandatory tables** (e.g., methods comparison table) — addressed by structural inventory in Phase 1 + structural audit in Phase 5
+- **Missing metric formulas / equations** for novel evaluation metrics — addressed by structural completeness cross-reference in Phase 3 + WRITING_RULES §8.2
+- **Vague, shallow limitations sections** — addressed by WRITING_RULES §8.3 + structural audit in Phase 5

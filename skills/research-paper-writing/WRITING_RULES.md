@@ -392,6 +392,16 @@ Run through every item below. Do not submit until every item is checked.
 - [ ] No throat-clearing openers
 - [ ] Notation is consistent across all sections
 
+**Structural completeness:**
+- [ ] Methods comparison table is present (compares approaches, not just numbers)
+- [ ] Every novel metric has a numbered equation with all symbols defined
+- [ ] Limitations section has ≥3 specific, actionable items for full papers (≥1 for short)
+- [ ] All mandatory elements from `VENUE_NOTES.md` structural checklist are present
+- [ ] Equation count is comparable to venue papers (within ±30%)
+- [ ] Table count is comparable to venue papers
+- [ ] Every equation is referenced by number in text
+- [ ] Qualitative results / visualizations match venue expectations
+
 **Format:**
 - [ ] Page limit respected
 - [ ] Figures are near their first text reference
@@ -402,3 +412,79 @@ Run through every item below. Do not submit until every item is checked.
 
 **Final test:**
 - [ ] Paper has been read aloud, start to finish, at least once
+
+---
+
+## 8. Structural completeness rules
+
+These rules address a class of failures distinct from prose quality: papers that read
+well sentence-by-sentence but are missing structural elements that reviewers at the
+target venue expect. A stylistically polished paper with a missing methods comparison
+table will still receive reviewer criticism. These rules prevent that.
+
+### 8.1 Every paper needs a methods comparison table
+
+If your paper positions itself against prior work — and almost every paper does —
+the experiments section or a dedicated subsection must contain a table that compares
+prior methods along structural dimensions, not just metric values. Typical columns
+include: method name, year, modality, core technique, supervision type,
+interpretability approach, key limitation.
+
+This table is distinct from the results table. The results table compares numbers;
+the methods comparison table compares approaches. Both are needed.
+
+This table is **always mandatory**, regardless of what the venue analysis reveals.
+Reviewers at any serious venue expect to see how the proposed method structurally
+differs from prior work, not just numerically.
+
+Populate this table from `literature_review.csv` — the `core_method`,
+`key_limitation`, and `how_we_differ` columns provide the raw data.
+
+### 8.2 Every novel metric must have a numbered equation
+
+If your paper defines or uses a metric that is not a standard off-the-shelf metric
+(accuracy, F1, AUC), you must provide its formula as a numbered equation with every
+symbol defined. "We measure feature agreement" without a formula is incomplete.
+"We measure Feature Agreement (Equation 10), defined as the mean cosine similarity
+between..." is complete.
+
+This applies to:
+- Novel evaluation metrics you introduce
+- Custom loss function components
+- Any formula central to your contribution that a reader cannot look up elsewhere
+
+### 8.3 Limitations must be specific and actionable
+
+A limitations section that says "future work could explore more datasets" is empty.
+Each limitation must:
+
+1. **Name the specific constraint** (e.g., "trained on frontal-view spinal
+   radiographs only")
+2. **Explain its impact on the claims** (e.g., "limits generalizability to lateral
+   views")
+3. **Suggest a concrete remedy** (e.g., "collecting lateral-view annotations and
+   retraining the concept bank would address this")
+
+Target at least 3 distinct limitations for full papers, at least 1 for short or
+workshop papers. Compare against the limitations sections of the venue papers
+analyzed in Phase 1 for appropriate depth.
+
+### 8.4 Equation inventory
+
+Before finalizing the draft, extract every equation into a numbered list and verify:
+- Every symbol is defined on first use
+- No symbol is defined with two different meanings across sections
+- Every equation is referenced by number in the text
+- Novel equations (your contributions) are distinguished from standard ones (cited)
+
+### 8.5 Table and figure inventory
+
+Before finalizing the draft, list every table and figure with:
+- Its number and title
+- Where it is first referenced in text
+- Whether it is self-contained (can a reviewer understand it from caption alone?)
+- Whether its format matches the venue's style (booktabs, etc.)
+
+Compare this inventory against the mandatory structural checklist from
+`VENUE_NOTES.md`. Any mandatory element missing from the draft must be added before
+submission.

@@ -25,10 +25,12 @@ related work, and AI-generation artifacts that survive into submission.
 - Code for the project and its outputs (results, plots, tables, metrics)
 
 **What you produce by the end:**
-- `VENUE_NOTES.md` — structure and style observations from five target-venue papers
+- `VENUE_NOTES.md` — structure, style, and structural component inventory from five
+  target-venue papers, plus a mandatory structural checklist
 - `LITERATURE_LIST.md` — 12–15 papers selected for literature review
 - `literature_review.csv` — filled structured literature review table
-- `TECHNICAL_DUMP.md` — all reportable technical content extracted from code/results
+- `TECHNICAL_DUMP.md` — all reportable technical content extracted from code/results,
+  including a methods comparison table and structural completeness cross-reference
 - The paper draft itself, section by section
 
 **Reference files in this skill:**
@@ -114,6 +116,24 @@ its abstract alone:
 After completing all five papers, write a single "synthesis note" at the bottom of
 `VENUE_NOTES.md` summarizing the pattern: what the typical structure looks like, the
 typical tone, and two or three specific things to consciously mirror in your paper.
+
+### 1.4 Build the structural component inventory
+
+For each of the five papers, inventory every structural component beyond prose:
+tables, figures, equations, algorithm boxes, confusion matrices, qualitative
+visualizations, efficiency comparisons, and custom metrics defined with formulas.
+Record these in the "Structural component inventory" section of each paper entry in
+`VENUE_NOTES.md`.
+
+After completing all five papers, count how many of the five papers contain each
+component type. Any element appearing in 3 or more papers is genre-mandatory —
+your draft must include it. The methods comparison table is always mandatory
+regardless of venue count. Record the consolidated results in the "Mandatory
+structural checklist" at the bottom of `VENUE_NOTES.md`.
+
+**This checklist is binding.** It will be used as a gate in Phase 3 and Phase 5.
+If the draft does not contain every mandatory element, it is not ready for
+sentence-level revision.
 
 ---
 
@@ -241,6 +261,34 @@ After filling this file, go back to the five venue papers from Phase 1. Check wh
 they report in their experiments sections. Add any category of information they report
 that you have not yet captured.
 
+### 3.2 Cross-reference against the venue structural checklist
+
+After filling `TECHNICAL_DUMP.md`, open the "Mandatory structural checklist" from
+`VENUE_NOTES.md`. For every element marked mandatory or strongly expected:
+
+1. Check whether `TECHNICAL_DUMP.md` contains the data needed to produce that element.
+2. If the data exists, note the section number.
+3. If the data is missing, determine whether it can be extracted from code/results
+   (and extract it now) or whether it needs to be constructed from the literature
+   review (e.g., a methods comparison table built from `literature_review.csv`).
+
+Fill the "Structural completeness cross-reference" table (Section 11 of
+`TECHNICAL_DUMP.md`) completely.
+
+**Gate rule: Do not begin Phase 4 until every row in the cross-reference table shows
+either "data present" or a concrete plan for producing it.**
+
+Pay special attention to:
+- **Methods comparison tables** — these are built from the literature review, not from
+  code. Cross-reference `literature_review.csv` to populate a comparison of prior
+  approaches by modality, technique, and interpretability approach.
+- **Custom metrics with formulas** — if your work defines a novel metric, its formula
+  must be written out explicitly, even if the code just calls a function. Extract the
+  equation from the code and write it in LaTeX notation.
+- **Limitations** — enumerate at least 3 specific, technically actionable limitations
+  with concrete future directions for full papers (at least 1 for short/workshop papers).
+  Do not write vague limitations like "future work could improve performance."
+
 ---
 
 ## Phase 4 — writing the draft
@@ -300,6 +348,39 @@ communicate, and it gives whoever produces the figure an unambiguous brief.
 
 Never revise the whole paper in a single pass. Each pass has one job only.
 
+### Pass 0 — structural completeness audit (do this FIRST)
+
+Before any prose revision, audit the draft against the "Mandatory structural checklist"
+from `VENUE_NOTES.md`. For each mandatory element:
+
+1. **Tables:** Is every mandatory table present in the draft? Check for: methods
+   comparison table, main results table, ablation table, per-class breakdown,
+   computational cost table, cross-dataset table — whichever the checklist requires.
+   The methods comparison table is always required.
+
+2. **Equations:** Is every custom metric, novel loss function, and architectural
+   formula defined with a numbered equation? Count the equations in the draft and
+   compare against the venue papers' equation counts.
+
+3. **Figures:** Does the draft contain or have placeholders for every mandatory
+   figure type (architecture diagram, qualitative results, attention maps, etc.)?
+
+4. **Limitations depth:** Does the limitations section contain at least 3 specific,
+   technically actionable items with concrete future directions for full papers
+   (at least 1 for short/workshop papers)? Compare against the venue papers'
+   limitations sections for depth and specificity.
+
+5. **Metric completeness:** For every evaluation metric used in the experiments, is
+   its formula or definition provided? For every novel metric, is there a numbered
+   equation with all symbols defined?
+
+Produce a structural audit report listing:
+- Elements present: ✓
+- Elements missing: ✗ with a description of what needs to be added
+- Elements present but insufficient: ⚠ with a description of what needs improvement
+
+**Do not proceed to Pass 1 until every ✗ is resolved and every ⚠ is addressed.**
+
 ### Pass 1 — contribution audit
 
 Read only the abstract and introduction. Answer: is the core contribution stated in
@@ -344,11 +425,11 @@ artifacts (see `WRITING_RULES.md` section 5).
 | Phase | Input | Output file | Template |
 |-------|-------|-------------|----------|
 | 0 | Idea document | Scratch paragraph (informal) | — |
-| 1 | 5 venue papers | `VENUE_NOTES.md` | `VENUE_NOTES_TEMPLATE.md` |
+| 1 | 5 venue papers | `VENUE_NOTES.md` + mandatory structural checklist | `VENUE_NOTES_TEMPLATE.md` |
 | 2 | 12–15 papers | `LITERATURE_LIST.md` + `literature_review.csv` | both templates |
-| 3 | Code + results | `TECHNICAL_DUMP.md` | `TECHNICAL_DUMP_TEMPLATE.md` |
+| 3 | Code + results | `TECHNICAL_DUMP.md` + structural cross-reference | `TECHNICAL_DUMP_TEMPLATE.md` |
 | 4 | All above | Paper draft (section by section) | `WRITING_RULES.md` |
-| 5 | Draft | Revised draft | `WRITING_RULES.md` |
+| 5 | Draft | Structural audit report → revised draft | `WRITING_RULES.md` |
 
 ---
 
